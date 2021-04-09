@@ -14,10 +14,9 @@ tie = True
 start = False
 play_computer = False
 
-print('\nDo you want to play against the computer?\nEnter y or n.')
 # Player chooses whether or not to play computer
 while not start:
-    response = input()
+    response = input('\nDo you want to play against the computer?\nPress \'y\' or \'n\' then \'return\' to continue. --> ')
     if response == 'y':
         play_computer = True
         start = True
@@ -33,7 +32,7 @@ while ' ' in board:
     if play_computer and turn % 2 != 0:
         space = str(random.randint(1,9))
     else:
-        space = input()
+        space = input('Enter number --> ')
     # repeat turn if user picks anything outside of 1-9
     if space not in utilities.valid_numbers():
         print('Pick a number 1 - 9')
@@ -42,7 +41,7 @@ while ' ' in board:
         space = int(space)
     # repeat this step if user picks filled space
     if board[space - 1] != ' ':
-        print('try again')
+        print('Space taken. Try again.')
         continue
     
     if turn % 2 == 0:
